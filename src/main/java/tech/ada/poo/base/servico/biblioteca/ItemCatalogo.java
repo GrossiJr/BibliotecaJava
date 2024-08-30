@@ -28,3 +28,24 @@ public abstract class ItemCatalogo {
         return false;
     }
 }
+public abstract class ItemCatalogo {
+    private String titulo;
+    private boolean isEmprestado;
+
+    public ItemCatalogo(String titulo) {
+        this.titulo = titulo;
+        this.isEmprestado = false; // Inicialmente, o item está disponível
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public boolean isEmprestado() {
+        return isEmprestado;
+    }
+
+    public void setEmprestado(boolean emprestado) {
+        isEmprestado = emprestado;
+    }
+}

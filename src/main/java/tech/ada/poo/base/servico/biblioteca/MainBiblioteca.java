@@ -18,6 +18,15 @@ public class MainBiblioteca {
         BibliotecaServiceVirtual bibServiceVirtual = new BibliotecaServiceVirtualImpl();
         bibServiceVirtual.reservar();
 
+        ItemCatalogo livroabc = new Livro("livro abc");
+        BibliotecaRepositorio repositorio = new BibliotecaRepositorioListImpl();
+        BibliotecaServiceFisica bibServiceFisica = new BibliotecaServiceFisicaImpl(repositorio);
+
+        bibServiceFisica.cadastrar(livroabc);
+        bibServiceFisica.emprestar(); // Tenta emprestar o item
+        boolean r1 = bibServiceFisica.consultar("livro abc"); // Deve retornar true mesmo após emprestar
+        System.out.println("Disponível: " + r1);
+
     }
 
 }
